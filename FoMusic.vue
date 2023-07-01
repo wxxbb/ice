@@ -76,7 +76,7 @@
 </template>
 <script setup>
 //import axios from 'axios'
-import { Search } from '@element-plus/icons-vue'
+import { Search } from '@element-plus/icons-vue'//jj
 import {ref,computed, onMounted} from 'vue'
 import ShouYe from './ShouYe.vue'
 import GeShou from './GeShou.vue'
