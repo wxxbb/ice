@@ -48,7 +48,7 @@
 <RouterView></RouterView>
 <Footer />
 <LoginUi ref="loginuiBlock"/>
-<div class="bt">
+<div class="bt" ref="gsg">
     <el-backtop :right="29" :bottom="149" />
     <!-- <div v-show="btFlex"><el-icon><ArrowUpBold /></el-icon></div> -->
     <div><a>举报</a></div>
@@ -59,15 +59,17 @@
 <script setup>
 //import axios from 'axios'
 import { Search } from '@element-plus/icons-vue'//jj
-import {ref,computed, onMounted} from 'vue'
+import {ref,computed, onMounted,getCurrentInstance} from 'vue'
 import LoginUi from '../components/LoginUi.vue'
 import Footer from '../components/Footer.vue'
 const loginuiBlock = ref(null)
+
 const my = ref(null)
 const btFlex = ref(false)
 const input = ref('')
 function loginui() {
   loginuiBlock.value.loginuiDisplay()
+  gsg.value.style.color = "red"
 }
 /*const songs = ref([])
 setTimeout(() => {
@@ -108,6 +110,7 @@ function changeliclass(){
 // onMounted(()=>{
 //   window.addEventListener("scroll",scrolling)
 // })
+
 
 </script>
 <style scoped>

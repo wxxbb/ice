@@ -25,7 +25,7 @@
 </template>
 <script setup>
 
-import { ref } from 'vue'
+import { ref} from 'vue'
 import { user } from './data1.js'
 const userAccount = ref('')
 const userPassWord = ref('')

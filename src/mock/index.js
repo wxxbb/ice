@@ -1,22 +1,11 @@
 import Mock from 'mockjs'
-const Random = Mock.Random
-const tableList = Mock.mock({
-  "data|100":[{
-    name:'@cname',
-    'id|+1':1
-  }]
+//import user from './user'
+import admin from './admin'
+Mock.setup({timeout:'100-200'})
+const routeList = [
+  ...admin
+]
+routeList.forEach(route=>{
+  Mock.mock(route.url,route.method===undefined?'get':route.method,route.tpl)
 })
-const userListData = [{
-  method:'post',
-  url:'/api/users',
-  response:({
-    body
-  })=>{
-    return {
-      code:200,
-      mag:'success',
-      data:userList
-    }
-  }
-}]
-export default userListData
+export default Mock

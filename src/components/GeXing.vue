@@ -2,16 +2,22 @@
   <div style="overflow: hidden;">
     <div style="border: 1px solid green;border-radius: 50%; width: 150px;height: 150px;margin: 50px;display: inline-block;text-align: center;" v-for="item in user">{{item.name}}</div>
     <ul>
-      <li v-for="item in user" :key="item.name">{{ item.name }}</li>
+      <li v-for="item in user" :key="item.name" >{{ item.name }}</li>
     </ul>
+    <button id="youjian">右键</button>
   </div>
+    <ul ref="caidan" id="caidan">
+      <li>ee</li>
+      <li @click="kk">rr</li>
+    </ul>
 </template>
 <script setup>
-import {ref,watch,reactive} from 'vue'
+import {ref,watch,reactive,onMounted,onUnmounted} from 'vue'
 import { useRoute } from "vue-router";
 
 const route = useRoute()
 let userData = ref()
+const caidan = ref(null)
 const data = [
   {name:'Akk',genre:'内地',sex:'男',area:'流行'},
   {name:'Aoo',genre:'内地',sex:'男',area:'说唱'},
@@ -38,9 +44,34 @@ function fetchUser(newId) {
   return user
 }
 // userData = fetchUser(route.query)
+onMounted(()=>{
+  document.getElementById('youjian').addEventListener('contextmenu',ss)
+  document.addEventListener('click',function(){
+    caidan.value.style.display='none'
+  })
+})
+
+onUnmounted(()=>{document.getElementById('youjian').removeEventListener('contextmenu',ss)})
+function kk(){
+  alert('gg')
+}
+function ss(e){
+  e.preventDefault()
+  const x = e.pageX
+  const y = e.pageY
+  caidan.value.style.display='block'
+  caidan.value.style.left=x+'px'
+  caidan.value.style.top=y+'px'
+}
+const ff = ref('0')
 </script>
 <style scoped>
 ul{
   list-style: none;
+}
+#caidan{
+  display: none;
+  position: absolute;
+  background-color: antiquewhite;
 }
 </style>

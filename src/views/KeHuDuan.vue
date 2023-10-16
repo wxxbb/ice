@@ -1,14 +1,18 @@
 <template>
-  <div>
-  <div style="width: 170px; height: 90px; display: inline-block;background-color: antiquewhite;">kehuduan</div>
-  <ul>
-    <li></li>
-    <li></li>
-    </ul>
-    <!-- <div style="display: inline-block">aaaaaaaa</div>
-    <div style="display: inline-block">bbbbbbbb</div> -->
-  </div>
+  <input v-model="text" @keyup="ff" maxlength="1000"/>
+  <input v-model="text1" maxlength="1000" placeholder="qing"/>
+  <button @click="gg">查看</button>
 </template>
+<script setup>
+import { ref } from 'vue'
+let text = ref('')
+const text1 = ref('')
+let ran = []
+function gg(){
+
+}
+
+</script>
 <style scoped>
 ul{
   list-style: none;

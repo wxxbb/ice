@@ -1,6 +1,7 @@
 <template>
   <div class="footer">
     <div class="footer_download">
+      <h3>下载QQ音乐客户端</h3>
       <ul class="footer_download_list">
         <li></li>
         <li></li>
@@ -9,6 +10,7 @@
       </ul>
     </div>
     <div class="footer_product">
+      <h3>特色产品</h3>
       <ul class="footer_product_list">
         <li></li>
         <li></li>
@@ -19,7 +21,7 @@
       </ul>
     </div>
     <div class="footer_group">
-      <div>合作链接</div>
+      <h3>合作链接</h3>
       <ul class="footer_group_list">
         <li v-for="item in items"><a :href="item.url">{{ item.name}}</a></li>
       </ul>
@@ -59,6 +61,9 @@ const items = [
   ]
 </script>
 <style scoped>
+h3{
+  color: rgb(127 127 127);
+}
 a{
  text-decoration: none;
  color: rgb(127 127 127);
