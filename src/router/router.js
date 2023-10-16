@@ -1,0 +1,94 @@
+import {createRouter,createWebHashHistory} from 'vue-router'
+const routes = [
+    {
+        path: '/',
+        redirect: '/home/yinYueGuan/shouYe'
+    },
+    {
+        path:'/home',
+        component:()=>import('../views/FoMusic.vue'),
+        children:[
+            {
+                path:'myMusic',
+                component:()=>import('../components/MyMusic.vue'),
+            },
+            {
+                path:'yinYueGuan',
+                component:()=>import('../components/YinYueGuan.vue'),
+                children:[
+                    {
+                    path:'geShou',
+                    component:()=>import('../components/GeShou.vue'),
+                    children:[
+                        {
+                          path:'geXing',
+                          component:()=>import('../components/GeXing.vue'),
+                        },
+                    ]
+                    },
+                    {
+                        path:'xinDie',
+                        component:()=>import('../components/XinDie.vue')
+                    },
+                    {
+                        path:'paiHangBang',
+                        component:()=>import('../components/PaiHangBang.vue')
+                    },
+                    {
+                        path:'shouYe',
+                        component:()=>import('../components/ShouYe.vue')
+                    },
+                    {
+                        path:'shouYe',
+                        component:()=>import('../components/ShouYe.vue')
+                    },
+                ]
+            }
+        ]
+    },
+    {
+        path:'/kaiFangPingTai',
+        component:()=>import('../views/KaiFangPingTai.vue')
+    },
+    {
+        path:'/keHuDuan',
+        component:()=>import('../views/KeHuDuan.vue')
+    },
+    {
+        path:'/index',
+        component:()=>import('../views/Vip.vue')
+    },
+    {
+        path:'/mockView',
+        component:()=>import('../views/MockView.vue')
+    },
+    {
+        path:'/geShou',
+        component:()=>import('../components/GeShou.vue')
+    },
+    {
+        path:'/shouYe',
+        component:()=>import('../components/ShouYe.vue')
+    },
+    {
+        path:'/songmd',
+        component:()=>import('../components/Songmd.vue')
+    }, 
+    {
+        path:'/xinDie',
+        component:()=>import('../components/XinDie.vue')
+    }, 
+    {
+        path:'/paiHangBang',
+        component:()=>import('../components/PaiHangBang.vue')
+    },
+    {
+        path: '/:pathMatch(.*)*',
+        redirect: '/'
+    }
+]
+const router = createRouter({
+    routes,
+    history:createWebHashHistory()
+})
+export default router
